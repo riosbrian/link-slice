@@ -1,0 +1,36 @@
+@use "../utils/" as u;
+
+.form {
+  &__slice {
+    padding: u.rem(20) 0;
+
+    @include u.media-query(u.rem(1110)) {
+      display: flex;
+      align-items: flex-end;
+      gap: u.rem(5);
+    }
+  }
+
+  &__group {
+  }
+
+  &__label {
+    display: inline-block;
+    margin-bottom: u.rem(5);
+  }
+
+  &__input {
+    width: 100%;
+    padding: u.rem(10);
+    border-radius: 5px;
+    margin-bottom: u.rem(18);
+
+    @include u.media-query(u.rem(1110)) {
+      margin-bottom: 0;
+    }
+  }
+
+  .btn {
+    margin-left: auto;
+  }
+}

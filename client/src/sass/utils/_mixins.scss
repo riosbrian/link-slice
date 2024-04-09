@@ -1,0 +1,5 @@
+@mixin mb-except-last($margin) {
+  & > *:not(:last-child) {
+    margin-bottom: $margin;
+  }
+}

@@ -1,0 +1,43 @@
+@use "../utils/" as u;
+
+.heading {
+  text-wrap: balance;
+  line-height: 1.1;
+
+  &--1 {
+    font-size: clamp(
+      u.rem(24),
+      0.6709183673469389rem + 3.537414965986394vw,
+      u.rem(50)
+    );
+  }
+
+  &--2 {
+    font-size: clamp(
+      u.rem(18),
+      0.9336734693877551rem + 0.8163265306122448vw,
+      u.rem(24)
+    );
+  }
+
+  &--3 {
+    font-size: clamp(
+      u.rem(16),
+      0.8724489795918368rem + 0.5442176870748299vw,
+      u.rem(20)
+    );
+  }
+}
+
+p {
+  text-wrap: pretty;
+  font-size: clamp(
+    u.rem(14),
+    0.8112244897959183rem + 0.27210884353741494vw,
+    u.rem(16)
+  );
+}
+
+a {
+  text-wrap: pretty;
+}

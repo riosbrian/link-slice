@@ -1,0 +1,33 @@
+@use "../utils/" as u;
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: u.rem(5);
+  padding: u.rem(10);
+  border-radius: 5px;
+  background-color: var(--color-grey);
+  color: var(--color-white);
+  font-size: u.rem(16);
+  font-weight: 500;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: var(--color-yellow);
+    color: var(--color-grey);
+  }
+
+  span {
+    display: flex;
+    svg {
+      height: u.rem(20);
+      width: u.rem(20);
+    }
+  }
+}

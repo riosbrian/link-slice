@@ -1,0 +1,9 @@
+@use "../utils/" as u;
+
+.dashboard {
+  padding-bottom: u.rem(64);
+
+  &__heading {
+    padding: u.rem(20) 0;
+  }
+}

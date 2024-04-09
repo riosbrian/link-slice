@@ -1,0 +1,21 @@
+@use "../utils/" as u;
+
+.header {
+  padding: u.rem(20) 0;
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__opts {
+    display: flex;
+    align-items: center;
+    gap: u.rem(5);
+  }
+
+  svg {
+    width: u.rem(140);
+  }
+}

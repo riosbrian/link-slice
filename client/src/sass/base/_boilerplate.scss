@@ -1,0 +1,53 @@
+@use "../utils/" as u;
+
+:root {
+  --color-white: #ffffff;
+  --color-black: #232323;
+  --color-grey: #2e2e2e;
+  --color-yellow: #fcfc62;
+  --color-red: #d90d32;
+  --font-primary: "Roboto Mono Variable", monospace;
+  --rounded-s: 5px;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: u.rem(16);
+  min-height: 100dvh;
+  background-color: var(--color-black);
+  font-family: var(--font-primary);
+  color: var(--color-white);
+  background-color: #e5e5f7;
+  opacity: 0.8;
+  background-size: 10px 10px;
+  background-image: repeating-linear-gradient(
+    45deg,
+    #272727 0,
+    #272727 1px,
+    var(--color-black) 0,
+    var(--color-black) 50%
+  );
+
+  // min-width: 375px;
+  // min-height: 600px;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}

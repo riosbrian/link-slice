@@ -1,0 +1,11 @@
+@use "../utils/" as u;
+
+.developBy {
+  text-align: center;
+
+  &__icon {
+    margin-left: 5px;
+    vertical-align: middle;
+    color: var(--color-yellow);
+  }
+}

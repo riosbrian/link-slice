@@ -1,0 +1,73 @@
+@use "../utils/" as u;
+
+.url-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(u.rem(300), 1fr));
+  gap: 1rem;
+}
+
+.url-box {
+  display: flex;
+  flex-direction: column;
+  gap: u.rem(5);
+  padding: u.rem(12);
+  border: 2px solid var(--color-black);
+  border-radius: 5px;
+  background-color: var(--color-grey);
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &__short {
+    color: var(--color-white);
+  }
+
+  &__original {
+    display: block;
+    width: u.rem(300);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: u.rem(12);
+    color: var(--color-white);
+  }
+
+  &__description {
+    font-size: u.rem(12);
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: u.rem(5);
+
+    .btn {
+      padding: 0;
+      background: none;
+
+      &:hover {
+        background: none;
+      }
+
+      &:hover svg {
+        color: var(--color-yellow);
+      }
+    }
+
+    svg {
+      height: 15px;
+      width: 15px;
+      transition: all 0.2s;
+    }
+  }
+
+  &__clicks {
+    font-size: u.rem(12);
+    color: var(--color-yellow);
+    margin-right: u.rem(10);
+  }
+}

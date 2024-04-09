@@ -1,0 +1,21 @@
+@use "../utils/" as u;
+
+.home-hero {
+  padding: u.rem(64) 0;
+
+  &__wrapper {
+    @include u.mb-except-last(u.rem(32));
+    text-align: center;
+  }
+
+  &__auth-opts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: u.rem(10);
+  }
+
+  .btn {
+    align-self: center;
+  }
+}

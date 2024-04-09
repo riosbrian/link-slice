@@ -1,0 +1,13 @@
+@use "../utils/" as u;
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: u.rem(20) 0;
+  backdrop-filter: blur(10px);
+
+  &__wrapper {
+    text-align: center;
+  }
+}
