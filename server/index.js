@@ -19,8 +19,6 @@ iniPassportStrategies();
 
 const app = express();
 
-//
-
 // MIDDLEWARES
 app.use(
   cors({
@@ -33,11 +31,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(passport.initialize());
 app.use(morgan("dev"));
-
-/* app.use((req, res, next) => {
-  res.set("Cache-Control", "no-store");
-  next();
-}); */
 
 // ROUTES
 app.use(apiRouter);
