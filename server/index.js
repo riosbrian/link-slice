@@ -11,7 +11,7 @@ import passport from "passport";
 import { notFoundHandler } from "./src/middlewares/notFound.js";
 import { errorHandler } from "./src/middlewares/errorHandler.js";
 
-const { PORT } = config;
+const { PORT, CLIENT_URL } = config;
 
 // DATABASE CONNECTION
 connectToMongoDB();
@@ -22,7 +22,7 @@ const app = express();
 // MIDDLEWARES
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://link-slice.vercel.app"],
+    origin: ["http://localhost:5173", CLIENT_URL],
     credentials: true,
   })
 );
