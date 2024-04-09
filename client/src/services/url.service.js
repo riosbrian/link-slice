@@ -1,8 +1,7 @@
-const SLICE_URL = import.meta.env.VITE_API_DEV_URL_SLICE;
-const GET_LINKS = import.meta.env.VITE_API_DEV_URL_LINKS;
+const API_URL = import.meta.env.VITE_API_URL;
 
 export const getUserUrls = async () => {
-  const res = await fetch(GET_LINKS, {
+  const res = await fetch(`${API_URL}/api/links`, {
     method: "GET",
     headers: { "Content-Type": "application/json" },
     credentials: "include",
@@ -13,7 +12,7 @@ export const getUserUrls = async () => {
 };
 
 export const sliceUrl = async (urlInfo) => {
-  const res = await fetch(SLICE_URL, {
+  const res = await fetch(`${API_URL}/api/slice`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(urlInfo),
@@ -25,7 +24,7 @@ export const sliceUrl = async (urlInfo) => {
 };
 
 export const deleteUrl = async (linkID) => {
-  const res = await fetch(`http://localhost:8080/api/${linkID}`, {
+  const res = await fetch(`${API_URL}/api/${linkID}`, {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
     credentials: "include",

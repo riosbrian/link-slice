@@ -1,9 +1,7 @@
-const GET_USER = import.meta.env.VITE_API_DEV_URL_USER;
-const LOGOUT = import.meta.env.VITE_API_DEV_URL_LOGOUT;
+const API_URL = import.meta.env.VITE_API_URL;
 
 export const login = (authUrl) => {
   try {
-    // window.open(authUrl, "_self");
     window.location.href = authUrl;
   } catch (error) {
     return error;
@@ -12,7 +10,7 @@ export const login = (authUrl) => {
 
 export const getLoggedUser = async () => {
   try {
-    const res = await fetch(GET_USER, {
+    const res = await fetch(`${API_URL}/api/auth/user`, {
       method: "GET",
       headers: { "Content-Type": "application/json" },
       credentials: "include",
@@ -27,7 +25,7 @@ export const getLoggedUser = async () => {
 
 export const logout = async () => {
   try {
-    const res = await fetch(LOGOUT, {
+    const res = await fetch(`${API_URL}/api/auth/logout`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       credentials: "include",

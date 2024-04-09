@@ -1,6 +1,8 @@
 import { createContext, useEffect, useState } from "react";
 import { getLoggedUser, login, logout } from "../services/auth.service";
 import { getUserUrls } from "../services/url.service";
+const API_URL = import.meta.env.VITE_API_URL;
+
 export const UserContext = createContext();
 
 export function UserProvider({ children }) {
@@ -46,7 +48,7 @@ export function UserProvider({ children }) {
 
   const handleLoginGitHub = () => {
     try {
-      login("http://localhost:8080/api/auth/github");
+      login(`${API_URL}/api/auth/github`);
     } catch (error) {
       console.log(error);
     }
@@ -54,7 +56,7 @@ export function UserProvider({ children }) {
 
   const handleLoginGoogle = () => {
     try {
-      login("http://localhost:8080/api/auth/google");
+      login(`${API_URL}/api/auth/google`);
     } catch (error) {
       console.log(error);
     }
