@@ -13,6 +13,10 @@ export function App() {
   const { user, loading, handleLogout } = useUser();
   if (loading) return <LoadingSpinner />;
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
+  console.log(API_URL);
+
   return (
     <div>
       <Header>
