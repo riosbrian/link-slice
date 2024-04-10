@@ -63,6 +63,7 @@ To run this project, you will need to add the following environment variables to
 **/server**
 
 `PORT`
+`API_URL`
 `CLIENT_URL`
 `MONGO_URL`
 `JWT_SECRET`

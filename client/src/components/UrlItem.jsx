@@ -15,6 +15,12 @@ export function UrlItem({ url, onDelUrl }) {
     }
   };
 
+  const copyUrl = () => {
+    navigator.clipboard.writeText(url.shortLink).then(() => {
+      console.log("copied");
+    });
+  };
+
   return (
     <li className="url-box">
       <div className="url-box__header">
@@ -23,7 +29,7 @@ export function UrlItem({ url, onDelUrl }) {
         </a>
         <div className="url-box__actions">
           <span className="url-box__clicks">{`Clicks: ${url.clickCount}`}</span>
-          <Button icon={<CopyIcon />} />
+          <Button icon={<CopyIcon />} onClick={copyUrl} />
           <Button icon={<DelIcon />} onClick={handleDelete} />
         </div>
       </div>
