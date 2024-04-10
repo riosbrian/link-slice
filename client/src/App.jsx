@@ -8,14 +8,11 @@ import { Button } from "./components/communs/Button";
 import { StarIcon } from "./components/icons/StarIcon";
 import { LogoIcon } from "./components/icons/LogoIcon";
 import { DevelopBy } from "./components/communs/DevelopBy";
+const REPOSITORY_URL = import.meta.env.VITE_REPOSITORY_URL;
 
 export function App() {
   const { user, loading, handleLogout } = useUser();
   if (loading) return <LoadingSpinner />;
-
-  const API_URL = import.meta.env.VITE_API_URL;
-
-  console.log(API_URL);
 
   return (
     <div>
@@ -24,9 +21,9 @@ export function App() {
         <div className="header__opts">
           {user && <Button text={"Logout"} onClick={handleLogout} />}
           <Button
-            text={"Star on Github"}
+            text={"on Github"}
             icon={<StarIcon />}
-            onClick={() => console.log("Hola")}
+            onClick={() => window.open(REPOSITORY_URL, "_blank")}
           />
         </div>
       </Header>

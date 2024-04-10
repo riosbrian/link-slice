@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Link.Slice()",
+  "version": "1.0",
+  "description": "A Chrome extension that simplifies link management and sharing by allowing users to shorten, save, delete, and edit URLs quickly and conveniently.",
+  "icons": {
+    "128": "link-slice.png"
+  },
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "Open"
+  },
+  "permissions": ["scripting"],
+  "host_permissions": ["http://*/*", "https://*/*"]
+}

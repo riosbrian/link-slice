@@ -1,6 +1,4 @@
-
 ![Logo](link-slice-logo.png)
-
 
 # Link.Slice
 
@@ -12,12 +10,12 @@ Also, we have a Chrome extension that provides fast access to your shortened URL
 
 This project uses the following technologies:
 
--  **React**
--  **Node Js**
--  **Express**
--  **Mongo DB**
--  **Mongoose**
--  **Sass**
+- **React**
+- **Node Js**
+- **Express**
+- **Mongo DB**
+- **Mongoose**
+- **Sass**
 
 ![web app](link-slice-app.png)
 
@@ -38,8 +36,22 @@ Install my-project with npm
 - Step 3: Install dependencies
 
 ```bash
-  npm Install
+  npm install
 ```
+
+- Step 4: Build your app and add the manifest.json file to dist folder
+
+```bash
+  npm run build
+```
+
+- [manifest.json](https://github.com/riosbrian/link-slice/blob/main/manifest.json)
+
+- Step 5: Upload dist folder in Chrome extensions
+
+- [Chrome extensions](chrome://extensions/)
+- [Chrome extensions official docs](https://developer.chrome.com/docs/extensions/get-started)
+
 ## Environment Variables
 
 To run this project, you will need to add the following environment variables to your .env file
@@ -51,7 +63,6 @@ To run this project, you will need to add the following environment variables to
 **/server**
 
 `PORT`
-`API_URL`
 `CLIENT_URL`
 `MONGO_URL`
 `JWT_SECRET`
@@ -79,32 +90,33 @@ GitHub Credentials
 Google Credentials
 
 - [Create a new OAuth App.](https://developers.google.com/identity/protocols/oauth2?hl=es-419#1.-obtain-oauth-2.0-credentials-from-the-dynamic_data.setvar.console_name-.)
+
 ## API Documentation
 
 Authentication Endpoints
 
-| Método | Endpoint                    | Descripción                                      |
-|--------|-----------------------------|--------------------------------------------------|
-| GET    | /api/auth/github            | Redirects to GitHub for authentication          |
-| GET    | /api/auth/github/callback   | Callback endpoint for GitHub authentication     |
-| GET    | /api/auth/google            | Redirects to Google for authentication          |
-| GET    | /api/auth/google/callback   | Callback endpoint for Google authentication     |
-| GET    | /api/auth/user              | Returns authenticated user                      |
-| POST   | /api/auth/logout            | Logs out user and removes JWT token from cookies|
+| Método | Endpoint                  | Descripción                                      |
+| ------ | ------------------------- | ------------------------------------------------ |
+| GET    | /api/auth/github          | Redirects to GitHub for authentication           |
+| GET    | /api/auth/github/callback | Callback endpoint for GitHub authentication      |
+| GET    | /api/auth/google          | Redirects to Google for authentication           |
+| GET    | /api/auth/google/callback | Callback endpoint for Google authentication      |
+| GET    | /api/auth/user            | Returns authenticated user                       |
+| POST   | /api/auth/logout          | Logs out user and removes JWT token from cookies |
 
 Links Endpoints
 
-| Método | Endpoint         | Descripción                                                                                     |
-|--------|------------------|-------------------------------------------------------------------------------------------------|
-| GET    | /api/links       | Retrieves all links for the logged-in user.                                                     |
-| DELETE | /api/:linkID     | Deletes a URL. The URL id to be deleted is sent via req.params.                                 |
-| GET    | /:link           | Redirects to the original URL. Receives the shortened URL via req.params.                       |
+| Método | Endpoint     | Descripción                                                               |
+| ------ | ------------ | ------------------------------------------------------------------------- |
+| GET    | /api/links   | Retrieves all links for the logged-in user.                               |
+| DELETE | /api/:linkID | Deletes a URL. The URL id to be deleted is sent via req.params.           |
+| GET    | /:link       | Redirects to the original URL. Receives the shortened URL via req.params. |
 
 Slice Url
 
-| Método | Endpoint                    | Descripción                                      |
-|--------|-----------------------------|--------------------------------------------------|
-| POST    | /api/slice                 | Shortens a link. Receives the following properties in req.body:          |
+| Método | Endpoint   | Descripción                                                     |
+| ------ | ---------- | --------------------------------------------------------------- |
+| POST   | /api/slice | Shortens a link. Receives the following properties in req.body: |
 
 ```json
 {
@@ -117,7 +129,7 @@ Slice Url
 - originalLink: (required, string) - The original link to be shortened.
 - description: (optional, string) - An optional description for the link.
 - customUrl: (optional, string) - An optional custom URL for the shortened link.
+
 ## Authors
 
 - [Brian Rios | Full Stack Developer](https://www.linkedin.com/in/brian-rios-5823a2214/)
-
