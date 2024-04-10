@@ -5,8 +5,6 @@ import { DelIcon } from "./icons/DelIcon";
 const API_URL = import.meta.env.VITE_API_URL;
 
 export function UrlItem({ url, onDelUrl }) {
-  const shortName = url.shortLink.split("/").at(-1);
-
   const handleDelete = async () => {
     try {
       const { data } = await deleteUrl(url._id);
@@ -27,10 +25,10 @@ export function UrlItem({ url, onDelUrl }) {
       <div className="url-box__header">
         <a
           className="url-box__short"
-          href={`${API_URL}/${shortName}`}
+          href={`${API_URL}/${url.shortLink}`}
           target="_blank"
         >
-          /{shortName}
+          /{url.shortLink}
         </a>
         <div className="url-box__actions">
           <span className="url-box__clicks">{`Clicks: ${url.clickCount}`}</span>
