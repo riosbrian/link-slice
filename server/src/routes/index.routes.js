@@ -1,6 +1,5 @@
 import { Router } from "express";
 import * as LinkController from "../controllers/link.controller.js";
-import config from "../config/config.js";
 const indexRouter = Router();
 
 indexRouter.get("/", (req, res, next) => {
