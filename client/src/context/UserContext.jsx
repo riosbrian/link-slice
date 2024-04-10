@@ -56,6 +56,7 @@ export function UserProvider({ children }) {
 
   const handleLoginGoogle = () => {
     try {
+      console.log(`${API_URL}/api/auth/google`);
       login(`${API_URL}/api/auth/google`);
     } catch (error) {
       console.log(error);
