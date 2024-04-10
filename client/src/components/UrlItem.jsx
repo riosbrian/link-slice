@@ -6,6 +6,8 @@ import { DelIcon } from "./icons/DelIcon";
 export function UrlItem({ url, onDelUrl }) {
   const shortName = url.shortLink.split("/").at(-1);
 
+  console.log(url);
+
   const handleDelete = async () => {
     try {
       const { data } = await deleteUrl(url._id);
