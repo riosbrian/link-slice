@@ -44,7 +44,6 @@ export const deleteLink = async (req, res, next) => {
 
 export const redirectLink = async (req, res, next) => {
   const { link } = req.params;
-  console.log(link);
   try {
     const shortenedLink = await LinkService.getLink(link);
     res.redirect(shortenedLink.data.originalLink);
