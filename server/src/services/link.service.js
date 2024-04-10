@@ -1,7 +1,7 @@
 import LinkDao from "../dao/mongo/link.dao.js";
 import config from "../config/config.js";
 import { generateRandomCode } from "../utils/generateRandomCode.js";
-const { APP_URL } = config;
+const { API_URL } = config;
 const linkDAO = new LinkDao();
 
 export const sliceUrl = async (urlData, owner) => {
@@ -9,22 +9,22 @@ export const sliceUrl = async (urlData, owner) => {
   let shortLink = "";
   try {
     if (customUrl) {
-      const isCustomUrlTaken = await linkDAO.findOne(`${APP_URL}/${customUrl}`);
+      const isCustomUrlTaken = await linkDAO.findOne(`${API_URL}/${customUrl}`);
       if (isCustomUrlTaken) throw new Error("Custom URL already used");
-      shortLink = `${APP_URL}/${customUrl}`;
+      shortLink = `${API_URL}/${customUrl}`;
     } else {
       let randomCode = generateRandomCode();
 
       const isRandomCodeTaken = await linkDAO.findOne(
-        `${APP_URL}/${randomCode}`
+        `${API_URL}/${randomCode}`
       );
 
       while (isRandomCodeTaken) {
         randomCode = generateRandomCode();
-        isRandomCodeTaken = await linkDAO.findOne(`${APP_URL}/${randomCode}`);
+        isRandomCodeTaken = await linkDAO.findOne(`${API_URL}/${randomCode}`);
       }
 
-      shortLink = `${APP_URL}/${randomCode}`;
+      shortLink = `${API_URL}/${randomCode}`;
     }
 
     const shorten = await linkDAO.create({
@@ -62,7 +62,7 @@ export const getLinks = async (owner) => {
 
 export const getLink = async (link) => {
   try {
-    const shorten = await linkDAO.findOne(`${APP_URL}/${link}`);
+    const shorten = await linkDAO.findOne(`${API_URL}/${link}`);
     if (!shorten) throw new Error("Non-existent link");
     const clicked = await linkDAO.findByIdAndUpdate(shorten._id, {
       $inc: { clickCount: 1 },
