@@ -60,7 +60,7 @@ export const getLinks = async (owner) => {
 
 export const getLink = async (link) => {
   try {
-    const shorten = await linkDAO.findOne(`${API_URL}/${link}`);
+    const shorten = await linkDAO.findOne(link);
     if (!shorten) throw new Error("Non-existent link");
     const clicked = await linkDAO.findByIdAndUpdate(shorten._id, {
       $inc: { clickCount: 1 },
