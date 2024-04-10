@@ -9,22 +9,20 @@ export const sliceUrl = async (urlData, owner) => {
   let shortLink = "";
   try {
     if (customUrl) {
-      const isCustomUrlTaken = await linkDAO.findOne(`${API_URL}/${customUrl}`);
+      const isCustomUrlTaken = await linkDAO.findOne(customUrl);
       if (isCustomUrlTaken) throw new Error("Custom URL already used");
-      shortLink = `${API_URL}/${customUrl}`;
+      shortLink = customUrl;
     } else {
       let randomCode = generateRandomCode();
 
-      const isRandomCodeTaken = await linkDAO.findOne(
-        `${API_URL}/${randomCode}`
-      );
+      const isRandomCodeTaken = await linkDAO.findOne(randomCode);
 
       while (isRandomCodeTaken) {
         randomCode = generateRandomCode();
-        isRandomCodeTaken = await linkDAO.findOne(`${API_URL}/${randomCode}`);
+        isRandomCodeTaken = await linkDAO.findOne(randomCode);
       }
 
-      shortLink = `${API_URL}/${randomCode}`;
+      shortLink = randomCode;
     }
 
     const shorten = await linkDAO.create({

@@ -7,9 +7,6 @@ const API_URL = import.meta.env.VITE_API_URL;
 export function UrlItem({ url, onDelUrl }) {
   const shortName = url.shortLink.split("/").at(-1);
 
-  console.log(url);
-  console.log(API_URL);
-
   const handleDelete = async () => {
     try {
       const { data } = await deleteUrl(url._id);
@@ -30,7 +27,7 @@ export function UrlItem({ url, onDelUrl }) {
       <div className="url-box__header">
         <a
           className="url-box__short"
-          href={`${API_URL}${shortName}`}
+          href={`${API_URL}/${shortName}`}
           target="_blank"
         >
           /{shortName}
